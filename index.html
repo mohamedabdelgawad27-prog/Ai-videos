@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video & Visual Portfolio | معرض أعمال فيديوهات الذكاء الاصطناعي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f111a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --accent-color: #00f2fe;
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --text-color: #ffffff;
+            --text-muted: #a0aec0;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Hero Section */
+        header {
+            padding: 80px 20px 40px;
+            text-align: center;
+            background: radial-gradient(circle at top, rgba(79, 172, 254, 0.15), transparent 70%);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        /* Filter Buttons */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 22px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-gradient);
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        .portfolio-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 172, 254, 0.2);
+            border-color: rgba(79, 172, 254, 0.4);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+            aspect-ratio: 9/16;
+            max-height: 480px;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-category {
+            font-size: 12px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: #000;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header>
+        <span class="badge">صناعة المحتوى الإعلاني والبصري بالذكاء الاصطناعي</span>
+        <h1>معرض الأعمال السينمائية والإعلانية</h1>
+        <p class="subtitle">نُحول الأفكار والصور إلى مقاطع فيديو إعلانية وسينمائية مبتكرة تجذب العين وتزيد التفاعل.</p>
+    </header>
+
+    <!-- Filters -->
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterSelection('all')">الكل</button>
+        <button class="filter-btn" onclick="filterSelection('ads')">إعلانات وأفكار تجارية</button>
+        <button class="filter-btn" onclick="filterSelection('cinematic')">مؤثرات سينمائية وSci-Fi</button>
+        <button class="filter-btn" onclick="filterSelection('branding')">هوية شخصية وتريندات</button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid">
+
+        <!-- Item 1: Ninja Turtles Pizza -->
+        <div class="portfolio-card ads">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169100.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">إعلانات وأفكار تجارية</span>
+                    <h3 class="card-title">فكرة إعلانية لمطعم بيتزا</h3>
+                    <p class="card-desc">تحويل صورة شخصية عادية إلى مشهد تفاعلي مميز داخل مطعم مع سلاحف النينجا لزيادة التفاعل.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 2: Cyborg Repair -->
+        <div class="portfolio-card cinematic">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169221.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
+                    <h3 class="card-title">صيانة الإنسان الآلي (Cyborg FX)</h3>
+                    <p class="card-desc">مشهد خيال علمي معقد يدمج الشخصية في هيئة روبوت يتم إصلاحه بدقة عاليّة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 3: Venom Encounter -->
+        <div class="portfolio-card cinematic">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169095.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
+                    <h3 class="card-title">مواجهة فينوم (Venom Sci-Fi)</h3>
+                    <p class="card-desc">تحويل بصرِي متتقدم لخلق تجربة سينمائية مستوحاة من أفلام هوليوود.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 4: Skyscraper Action -->
+        <div class="portfolio-card cinematic">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169196.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
+                    <h3 class="card-title">مشهد أكشن وحرائق</h3>
+                    <p class="card-desc">توليد ناطحة سحاب تحترق وتأثيرات الحركة والهروب الحماسية.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 5: Executive Office -->
+        <div class="portfolio-card branding">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169101.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">هوية شخصية ورجال أعمال</span>
+                    <h3 class="card-title">بورتريه فخم لمكتب تنفيذي</h3>
+                    <p class="card-desc">صناعة مشهد فاخر ومحترف يعزز من قوة الهوية الشخصية لأصحاب الأعمال.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 6: Mini Battery Charger -->
+        <div class="portfolio-card ads">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169197.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">إعلانات وأفكار تجارية</span>
+                    <h3 class="card-title">مفهوم طاقة شحن 2%</h3>
+                    <p class="card-desc">فكرة مبتكرة ومرحة لإعلانات تطبيقات الطاقة أو شواحن الهواتف.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 7: Watermelon Caricature -->
+        <div class="portfolio-card ads">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169208.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">إعلانات وأفكار تجارية</span>
+                    <h3 class="card-title">كاريكاتير البطيخ الصيفي</h3>
+                    <p class="card-desc">تصميم كرتوني مبهج ومناسب للمطاعم والمنتجات الصيفية والمشروبات.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item 8: Clown Mask Dark Vibe -->
+        <div class="portfolio-card cinematic">
+            <div class="video-wrapper">
+                <video controls loop muted preload="metadata">
+                    <source src="1000169200.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card-info">
+                <div>
+                    <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
+                    <h3 class="card-title">قناع الجوكر والغموض</h3>
+                    <p class="card-desc">إضاءة وسينماتوغرافيا داكنة ومبهرة تناسب المهرجانات وصناعة المحتوى الترفيهي.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact CTA -->
+    <section class="contact-section">
+        <h2>هل لديك مشروع أو تريد فيديو خاص لعلامتك التجارية؟</h2>
+        <p style="color: var(--text-muted); margin-top: 10px;">نتولى تحويل أفكارك إلى مقاطع بصرية تجذب انتباه عملائك فوراً.</p>
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" class="contact-btn" target="_blank">تواصل معي عبر واتساب</a>
+    </section>
+
+    <footer>
+        <p>© جميع الحقوق محفوظة - صانع المحتوى البصري والذكاء الاصطناعي</p>
+    </footer>
+
+    <!-- Filter Script -->
+    <script>
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("portfolio-card");
+            if (c == "all") c = "";
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                if (x[i].className.indexOf(c) > -1) {
+                    x[i].style.display = "flex";
+                }
+            }
+
+            // Active button style
+            var btns = document.getElementsByClassName("filter-btn");
+            for (var j = 0; j < btns.length; j++) {
+                btns[j].classList.remove("active");
+            }
+            event.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
