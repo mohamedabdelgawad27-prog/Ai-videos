@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Video & Visual Portfolio | معرض أعمال فيديوهات الذكاء الاصطناعي</title>
+    <title>AI Video & Visual Portfolio | معرض أعمال الذكاء الاصطناعي</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -30,9 +30,9 @@
             overflow-x: hidden;
         }
 
-        /* Header & Hero Section */
+        /* Header Section */
         header {
-            padding: 80px 20px 40px;
+            padding: 70px 20px 30px;
             text-align: center;
             background: radial-gradient(circle at top, rgba(79, 172, 254, 0.15), transparent 70%);
         }
@@ -50,28 +50,28 @@
         }
 
         h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         p.subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 650px;
-            margin: 0 auto 30px;
+            margin: 0 auto 20px;
         }
 
         /* Filter Buttons */
         .filter-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             padding: 0 20px;
         }
 
@@ -79,7 +79,7 @@
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            padding: 10px 22px;
+            padding: 8px 20px;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -96,7 +96,7 @@
         /* Portfolio Grid */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
@@ -115,7 +115,7 @@
         }
 
         .portfolio-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(79, 172, 254, 0.2);
             border-color: rgba(79, 172, 254, 0.4);
         }
@@ -125,17 +125,18 @@
             width: 100%;
             background: #000;
             aspect-ratio: 9/16;
-            max-height: 480px;
+            max-height: 460px;
         }
 
         .video-wrapper video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .card-info {
-            padding: 20px;
+            padding: 18px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -143,7 +144,7 @@
         }
 
         .card-category {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--accent-color);
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -152,20 +153,20 @@
         }
 
         .card-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .card-desc {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
         /* Contact Section */
         .contact-section {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 20px;
             background: rgba(255, 255, 255, 0.02);
             border-top: 1px solid var(--border-color);
         }
@@ -174,13 +175,13 @@
             display: inline-block;
             background: var(--accent-gradient);
             color: #000;
-            padding: 14px 35px;
+            padding: 12px 30px;
             border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .contact-btn:hover {
@@ -199,14 +200,12 @@
 </head>
 <body>
 
-    <!-- Hero Section -->
     <header>
         <span class="badge">صناعة المحتوى الإعلاني والبصري بالذكاء الاصطناعي</span>
         <h1>معرض الأعمال السينمائية والإعلانية</h1>
         <p class="subtitle">نُحول الأفكار والصور إلى مقاطع فيديو إعلانية وسينمائية مبتكرة تجذب العين وتزيد التفاعل.</p>
     </header>
 
-    <!-- Filters -->
     <div class="filter-container">
         <button class="filter-btn active" onclick="filterSelection('all')">الكل</button>
         <button class="filter-btn" onclick="filterSelection('ads')">إعلانات وأفكار تجارية</button>
@@ -214,62 +213,65 @@
         <button class="filter-btn" onclick="filterSelection('branding')">هوية شخصية وتريندات</button>
     </div>
 
-    <!-- Portfolio Grid -->
     <div class="portfolio-grid">
 
-        <!-- Item 1: Ninja Turtles Pizza -->
+        <!-- 1: Ninja Turtles Pizza -->
         <div class="portfolio-card ads">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169100.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
                 <div>
                     <span class="card-category">إعلانات وأفكار تجارية</span>
                     <h3 class="card-title">فكرة إعلانية لمطعم بيتزا</h3>
-                    <p class="card-desc">تحويل صورة شخصية عادية إلى مشهد تفاعلي مميز داخل مطعم مع سلاحف النينجا لزيادة التفاعل.</p>
+                    <p class="card-desc">تحويل صورة شخصية عادية إلى مشهد تفاعلي مميز داخل مطعم مع سلاحف النينجا.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Item 2: Cyborg Repair -->
+        <!-- 2: Cyborg Repair -->
         <div class="portfolio-card cinematic">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
-                    <source src="lv_0_20260808195625.mp4" type="video/mp4">
+                <video controls autoplay loop muted playsinline preload="auto">
+                    <source src="1000169221.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
                 <div>
                     <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
                     <h3 class="card-title">صيانة الإنسان الآلي (Cyborg FX)</h3>
-                    <p class="card-desc">مشهد خيال علمي معقد يدمج الشخصية في هيئة روبوت يتم إصلاحه بدقة عاليّة.</p>
+                    <p class="card-desc">مشهد خيال علمي معقد يدمج الشخصية في هيئة روبوت يتم إصلاحه بدقة.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Item 3: Venom Encounter -->
+        <!-- 3: Venom Encounter -->
         <div class="portfolio-card cinematic">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169095.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
                 <div>
                     <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
                     <h3 class="card-title">مواجهة فينوم (Venom Sci-Fi)</h3>
-                    <p class="card-desc">تحويل بصرِي متتقدم لخلق تجربة سينمائية مستوحاة من أفلام هوليوود.</p>
+                    <p class="card-desc">تحويل بصرِي متقدم لخلق تجربة سينمائية مستوحاة من أفلام هوليوود.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Item 4: Skyscraper Action -->
+        <!-- 4: Skyscraper Action -->
         <div class="portfolio-card cinematic">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169196.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
@@ -281,11 +283,12 @@
             </div>
         </div>
 
-        <!-- Item 5: Executive Office -->
+        <!-- 5: Executive Office -->
         <div class="portfolio-card branding">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169101.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
@@ -297,11 +300,12 @@
             </div>
         </div>
 
-        <!-- Item 6: Mini Battery Charger -->
+        <!-- 6: Mini Battery Charger -->
         <div class="portfolio-card ads">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169197.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
@@ -313,11 +317,12 @@
             </div>
         </div>
 
-        <!-- Item 7: Watermelon Caricature -->
+        <!-- 7: Watermelon Caricature -->
         <div class="portfolio-card ads">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169208.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
@@ -329,25 +334,25 @@
             </div>
         </div>
 
-        <!-- Item 8: Clown Mask Dark Vibe -->
+        <!-- 8: Clown Mask Dark Vibe -->
         <div class="portfolio-card cinematic">
             <div class="video-wrapper">
-                <video controls loop muted preload="metadata">
+                <video controls autoplay loop muted playsinline preload="auto">
                     <source src="1000169200.mp4" type="video/mp4">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
                 </video>
             </div>
             <div class="card-info">
                 <div>
                     <span class="card-category">مؤثرات سينمائية وSci-Fi</span>
                     <h3 class="card-title">قناع الجوكر والغموض</h3>
-                    <p class="card-desc">إضاءة وسينماتوغرافيا داكنة ومبهرة تناسب المهرجانات وصناعة المحتوى الترفيهي.</p>
+                    <p class="card-desc">إضاءة وسينماتوغرافيا داكنة ومبهرة تناسب صناعة المحتوى الترفيهي.</p>
                 </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Contact CTA -->
     <section class="contact-section">
         <h2>هل لديك مشروع أو تريد فيديو خاص لعلامتك التجارية؟</h2>
         <p style="color: var(--text-muted); margin-top: 10px;">نتولى تحويل أفكارك إلى مقاطع بصرية تجذب انتباه عملائك فوراً.</p>
@@ -358,8 +363,22 @@
         <p>© جميع الحقوق محفوظة - صانع المحتوى البصري والذكاء الاصطناعي</p>
     </footer>
 
-    <!-- Filter Script -->
     <script>
+        // Force Auto-play Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.muted = true; // Required for browser autoplay policy
+                let playPromise = video.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.log("Autoplay paused by browser policy:", error);
+                    });
+                }
+            });
+        });
+
+        // Filter Script
         function filterSelection(c) {
             var x, i;
             x = document.getElementsByClassName("portfolio-card");
@@ -371,7 +390,6 @@
                 }
             }
 
-            // Active button style
             var btns = document.getElementsByClassName("filter-btn");
             for (var j = 0; j < btns.length; j++) {
                 btns[j].classList.remove("active");
